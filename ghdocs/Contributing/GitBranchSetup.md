@@ -4,8 +4,11 @@ This document describes how to setup your development environment and contribute
 
 ## Setup
 
-- Make sure you have a **github** accont. If not, create one.
-- Install **Node.js LTS 8** or greater from [Node.js website](https://nodejs.org/en/).
+- Make sure you have a **github** account. If not, create one.
+- Install **Node.js LTS 8** or greater from thes **[Node.js website](https://nodejs.org/en/)**.
+- Install **[Git](https://git-scm.com/)**.
+- For code editing we like **[Visual Studio Code ](https://code.visualstudio.com/)**
+- For Git branch management we like **[SourceTree](https://www.atlassian.com/software/sourcetree)**
 
 ## Building
 
