@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { IRenderFunction } from '../../Utilities';
-import { Persona } from './Persona';
+import { PersonaBase } from './Persona.base';
 import { ImageLoadState } from '../../Image';
+import { IStyle, ITheme } from '../../Styling';
+import { IStyleFunction } from '../../Utilities';
 
 export interface IPersona {
 
 }
 
-export interface IPersonaProps extends React.HTMLAttributes<Persona> {
+export interface IPersonaProps extends React.HTMLAttributes<PersonaBase> {
   /**
    * Optional callback to access the IPersona interface. Use this instead of ref for accessing
    * the public methods and properties of the component.
    */
-  componentRef?: (component: IPersona) => void;
+  componentRef?: (component: IPersona | null) => void;
 
   /**
    * Primary text to display, usually the name of the person.
@@ -62,6 +64,13 @@ export interface IPersonaProps extends React.HTMLAttributes<Persona> {
    * @defaultvalue [Derived from primaryText]
    */
   imageInitials?: string;
+
+  /**
+   * Whether initials are calculated for phone numbers and number sequences.
+   * Example: Set property to true to get initials for project names consisting of numbers only.
+   * @defaultvalue false
+   */
+  allowPhoneInitials?: boolean;
 
   /**
    * Optional custom renderer for the initials
@@ -139,6 +148,16 @@ export interface IPersonaProps extends React.HTMLAttributes<Persona> {
    * Optional HTML element props for Persona coin.
    */
   coinProps?: React.HTMLAttributes<HTMLDivElement>;
+
+  /**
+   * Call to provide customized styling that will layer on top of variant rules
+   */
+  getStyles?: IStyleFunction<IPersonaStyleProps, IPersonaStyles>;
+
+  /**
+   * Theme provided by HOC.
+   */
+  theme?: ITheme;
 }
 
 export enum PersonaSize {
@@ -223,4 +242,20 @@ export enum PersonaInitialsColor {
    * Its primary use is for overflow buttons, so it is considered a reserved color and can only be set with overrides.
    */
   transparent = 15,
+}
+
+export interface IPersonaStyleProps {
+  /**
+   * Theme.
+   */
+  theme: ITheme;
+
+  /**
+   * Custom class name.
+   */
+  className?: string;
+}
+
+export interface IPersonaStyles {
+  root: IStyle;
 }

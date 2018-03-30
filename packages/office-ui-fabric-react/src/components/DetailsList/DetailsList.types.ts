@@ -44,7 +44,7 @@ export interface IDetailsListProps extends React.Props<DetailsList>, IWithViewpo
    * Optional callback to access the IDetailsList interface. Use this instead of ref for accessing
    * the public methods and properties of the component.
    */
-  componentRef?: (component: IDetailsList) => void;
+  componentRef?: (component: IDetailsList | null) => void;
 
   /** A key that uniquely identifies the given items. If provided, the selection will be reset when the key changes. */
   setKey?: string;
@@ -329,7 +329,7 @@ export interface IColumn {
   /**
    * If provided, will be executed when the user clicks on the column header.
    */
-  onColumnClick?: (ev?: React.MouseEvent<HTMLElement>, column?: IColumn) => any;
+  onColumnClick?: (ev: React.MouseEvent<HTMLElement>, column: IColumn) => any;
 
   /**
    * If provided, will be executed when the user accesses the contextmenu on a column header.
