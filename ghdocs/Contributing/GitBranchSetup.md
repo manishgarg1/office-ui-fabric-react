@@ -82,14 +82,23 @@ Create a branch from your fork and start making the code changes. Either a new c
 
 Members on the **office-ui-fabric-react** core team will help merge your changes.
 
-## Merging upstream master into your fork
+## Merging upstream master into your fork master
 
 From time to time, your fork will get out of sync with the upstream remote. Use the following commands to get your fork up upto date.
 
 ```
 git fetch upstream
 git checkout master
-git merge upstream/master
+git pull upstream master
+```
+
+## Merging upstream master into your current branch
+
+From time to time, your current branch will get out of sync with the upstream remote. Use the following commands to get your branch up upto date.
+
+```
+git fetch upstream
+git pull upstream master
 ```
 
 All done!
